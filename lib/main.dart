@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'firebase_options.dart';
+import 'student_crud_page.dart';
 
-// ====== STUDENT INFO ======
+// student info
 const String studentName = 'Jasper Paso';
 const String studentId = '553296';
-const String studentCourseSection = 'CCE106 - 3447';
+const String studentCourseSection = 'CCE106 (3447)';
 const String studentEmail = 'j.paso.553296@umindanao.edu.ph';
-// ==========================
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,10 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  if (FirebaseAuth.instance.currentUser == null) {
+    await FirebaseAuth.instance.signInAnonymously();
+  }
 
   runApp(const StudentApp());
 }
@@ -410,6 +415,18 @@ class DashboardPage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const StudentCrudPage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.storage),
+            label: const Text('Manage Student Records'),
           ),
         ],
       ),
