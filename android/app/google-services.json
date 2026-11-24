@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "654830014143",
+    "project_id": "paso-student-app",
+    "storage_bucket": "paso-student-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654830014143:android:b13455326d86e815fa800a",
+        "android_client_info": {
+          "package_name": "com.example.paso_navigation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCsW7I9t2k4oNdKHBkT4hhS3hTLCb5eHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
